@@ -99,7 +99,7 @@ media_folder: "img/uploads" # Folder where user uploaded files should go
 
 collections: # A list of collections the CMS should be able to edit
 ```
--Then, build your site.
+- Then, build your site.
 
 ### Usages
 - Just go to http://your.domain.site/admin ;)
