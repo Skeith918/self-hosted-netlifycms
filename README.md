@@ -1,7 +1,7 @@
 # Self-hosted Netlifycms
 ## Tutorial to install an fully local netlifycms installation.
 
-#### Requirements
+### Requirements
 - A static site generator whith its dependencies which linked with github (Jekyll, Hugo, etc...), [HERE](https://www.staticgen.com/), a list of the top of static site generator.
 - Nodejs 6.x
 - [PM2](https://github.com/Unitech/pm2) node package
@@ -99,6 +99,7 @@ media_folder: "img/uploads" # Folder where user uploaded files should go
 
 collections: # A list of collections the CMS should be able to edit
 ```
-### Usages
+-Then, build your site.
 
+### Usages
 - Just go to http://your.domain.site/admin ;)
