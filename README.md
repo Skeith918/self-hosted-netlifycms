@@ -87,7 +87,7 @@ mkdir admin && touch admin config.yml && touch index.html
 </html>
 
 ```
-And the config.yml like this (To create collection take a look to the [official docs](https://github.com/netlify/netlify-cms/blob/master/docs/quick-start.md)):
+- And the config.yml like this (To create collection take a look to the [official docs](https://github.com/netlify/netlify-cms/blob/master/docs/quick-start.md)):
 ```
 backend:
   name: github
