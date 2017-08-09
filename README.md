@@ -106,7 +106,7 @@ npm run build
 - We'll use CircleCI for test and automated deployment:
 - Where you want, create an ssh key pair without passphrase
 ```
-ssh-keygenthub
+ssh-keygen
 ```
 - In the root of your Github project, create the file _circle.yml_ and set your tests according to your static site generator, in my case a set a test for a [Jekyll](https://jekyllrb.com/) site. But in any cases, keep the deployment part
 ```
