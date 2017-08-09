@@ -30,40 +30,6 @@ OAUTH_CLIENT_SECRET=yourclientsecret
 npm install
 pm2 start --name="github-oauth-provider" npm -- start
 ```
-
-##### NetlifyCMS
-
-- Clone the [netlify-cms](https://github.com/netlify/netlify-cms) repo
-```
-git clone https://github.com/netlify/netlify-cms
-```
-- Set a web access to the root path of netlifycms with your favorite web server.
-```
-server {
-    listen 80
-
-    server_name cms.your.domain.site
-
-    location / {
-        add_header Access-Control-Allow-Origin "*";
-        root /path/to/netlify-cms;
-        index index.html;
-        }
-
-}
-```
-- Edit the netlify.toml to link with your static site:
-```
-[build]
-Command = "npm run build && cp /path/to/your/static/site/* dist/"
-Publish = "dist"
-
-```
-- Install dependencies and build the CMS
-```
-npm install
-npm run build
-```
 ##### Configuration of static site
 - On the root path of your static site, create the "_admin_" directory and this directory create the file _index.html_ and _config.yml_
 ```
@@ -100,6 +66,40 @@ media_folder: "img/uploads" # Folder where user uploaded files should go
 collections: # A list of collections the CMS should be able to edit
 ```
 - Then, build your site.
+
+##### NetlifyCMS
+
+- Clone the [netlify-cms](https://github.com/netlify/netlify-cms) repo
+```
+git clone https://github.com/netlify/netlify-cms
+```
+- Set a web access to the root path of netlifycms with your favorite web server.
+```
+server {
+    listen 80
+
+    server_name cms.your.domain.site
+
+    location / {
+        add_header Access-Control-Allow-Origin "*";
+        root /path/to/netlify-cms;
+        index index.html;
+        }
+
+}
+```
+- Edit the netlify.toml to link with your static site:
+```
+[build]
+Command = "npm run build && cp /path/to/your/static/site/* dist/"
+Publish = "dist"
+
+```
+- Install dependencies and build the CMS
+```
+npm install
+npm run build
+```
 
 ### Usages
 - Just go to http://your.domain.site/admin ;)
