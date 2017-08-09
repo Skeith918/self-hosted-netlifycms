@@ -2,7 +2,7 @@
 ## Tutorial to install an fully local netlifycms installation.
 
 ### Requirements
-- A static site generator whith its dependencies which linked with github (Jekyll, Hugo, etc...), [HERE](https://www.staticgen.com/), a list of the top of static site generator.
+- A static site generator whith its dependencies in your server and which's stored in github (Jekyll, Hugo, etc...), [HERE](https://www.staticgen.com/), a list of the top of static site generator.
 - Nodejs 6.x
 - [PM2](https://github.com/Unitech/pm2) node package
 
@@ -101,5 +101,56 @@ npm install
 npm run build
 ```
 
-### Usages
-- Just go to http://your.domain.site/admin ;)
+##### Deployment
+
+- We'll use CircleCI for test and automated deployment:
+- Where you want, create an ssh key pair without passphrase
+```
+ssh-keygenthub
+```
+- In the root of your Github project, create the file _circle.yml_ and set your tests according to your static site generator, in my case a set a test for a [Jekyll](https://jekyllrb.com/) site. But in any cases, keep the deployment part
+```
+machine:
+  ruby:
+    version: 2.3.1
+  java:  # see <https://github.com/svenkreiss/html5validator#integration-with-circleci>
+    version: oraclejdk8
+  environment:
+    NOKOGIRI_USE_SYSTEM_LIBRARIES: true # Faster installation of nokogiri, required by html-proofer
+
+dependencies:
+  post:
+    - bundle exec jekyll --version # print it out
+
+test:
+  override:
+    - bundle exec jekyll doctor
+    - bundle exec jekyll build
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./deploy
+```
+- Also create a _deploy_ file, CircleCI will execute it in its container to deploy your change in your server and build the site, again, in my case the deploy script is adapted to a jekyll site, for an another tool add all ssh command you need to build your site, but keep the __git pull__ command
+```
+#!/bin/bash
+
+echo "Start deploy"
+ssh -tq root@your.domaine.site "bash -lc 'cd /path/to/your/static/site/ && git pull'"
+ssh -tq root@your.domaine.site "bash -lc 'cd /path/to/your/static/site/ && bundle exec jekyll build'"
+echo "Deployed Successfully!"
+
+exit 0
+
+```
+- Connect to [CircleCI](https://circleci.com/vcs-authorize/) with your github account
+- On the dashboard, select your github project which match with your site
+- In the settings of your project in PERMISSIONS, SSH PERMISSIONS, select _Add SSH Key_
+- In this input, set your site domain in _hostname_ and copy the private key you created
+- Now, for each push in your git repositories whether this comes from the CMS, You directly on github, or from the server, CircleCI execute your test and your deploy script to build your site automaticly.
+
+##### Usages
+
+- Go to http://your.domain.site/admin ;)
