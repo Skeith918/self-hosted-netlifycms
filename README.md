@@ -3,7 +3,7 @@
 
 ### Note
 
-The authentication and edition **will not work with fork !**
+This method **will not work with fork !**
 
 ### Requirements
 - A static site generator whith its dependencies in your server and which's stored in github (Jekyll, Hugo, etc...), [HERE](https://www.staticgen.com/), a list of the top of static site generator.
