@@ -1,6 +1,10 @@
 # Self-hosted Netlifycms
 ## Tutorial to install an fully selfhosted netlifycms instance, a blog and deploy it automatically
 
+### Note
+
+The authentication and edition **will not work with fork !**
+
 ### Requirements
 - A static site generator whith its dependencies in your server and which's stored in github (Jekyll, Hugo, etc...), [HERE](https://www.staticgen.com/), a list of the top of static site generator.
 - Nodejs 6.x
