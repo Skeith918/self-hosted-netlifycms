@@ -16,7 +16,7 @@ This method **will not work with fork !**
 
 - Create an Oauth application in your [github settings](https://github.com/settings/developers) with the callback URL : http://your.domain.site:3000/callback
 
-- Clone the [netlify-github-oauth-provider](https://github.com/vencax/netlify-cms-github-oauth-providernetli) repositories
+- Clone the [netlify-github-oauth-provider](https://github.com/vencax/netlify-cms-github-oauth-provider) repositories
 ```
 git clone https://github.com/vencax/netlify-cms-github-oauth-provider
 ```
