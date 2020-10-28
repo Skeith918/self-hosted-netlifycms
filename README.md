@@ -18,11 +18,11 @@ This method **will not work with fork !**
 
 - Clone the [netlify-github-oauth-provider](https://github.com/vencax/netlify-cms-github-oauth-providernetli) repositories
 ```
-git clone https://github.com/vencax/netlify-cms-github-oauth-providernetli
+git clone https://github.com/vencax/netlify-cms-github-oauth-provider
 ```
 - Create in this one the _.env_ file and set in the credentials of your Oauth application :
 ```
-touch netlify-cms-github-oauth-providernetli/.env
+touch netlify-cms-github-oauth-provider/.env
 ```
 ```
 NODE_ENV=production
